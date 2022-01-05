@@ -54,7 +54,7 @@ class RetreatSizeApp extends React.Component {
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="retreat-size">
-                                    <Form.Label>Please Select Your Retreat Size:</Form.Label>
+                                    <Form.Label>Enter Group Size</Form.Label>
                                     <Form.Control as="select" onChange={this.onSizeChange.bind(this)}>
                                         <option id="size">Retreat Size:</option>
                                         <option id="20-39">20-39 Persons</option>

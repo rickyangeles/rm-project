@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Footer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBFooter } from "mdbreact";
+import { Link } from 'react-scroll';
 
 import { genRecTotalPrice } from '../Activities/GeneralRecreation';
 import { wildlifeCenterTotalPrice } from '../Activities/WildlifeCenter';
@@ -42,23 +42,26 @@ function FooterApp() {
         //     setWildlifeCenterState(getFormattedPrice(wildlifeCenterTotalPrice));
         //     setFinalPriceState(finalPriceState + wildlifeCenterState); 
         // }
-        console.log(genRecTotalPrice);
-        console.log(wildlifeCenterTotalPrice);
-        console.log(highAdventureTotalPrice);
-        console.log(teambuildingTotalPrice);
-        console.log(horseProgramsTotalPrice);
-        console.log(poolPartiesTotalPrice);
     };
 
     return (
         <div>
-            <MDBFooter className="text-center fixed-bottom" id="footer">
-                <h3>This is the average price per person: ${genRecState}</h3>
-                <h6>This line will have the total cost of all activites:</h6>
-                <h6 style={{ fontSize: '12px' }}>*Group Events are priced as a Flat Rate.  This “pp” 
-                    estimate is meant to help with planning, but final billing will be set as a 
-                    flat price, with a min/max # of people that the schedule can accommodate. 
-                </h6>
+            <MDBFooter className="estimate-sidebar" id="horseProg">
+                <h3>Your Group Price Estimate</h3>
+                <div>
+                    <h4>Average Price Per Person</h4>
+                    <ul>
+                        <li><Link activeClass="active" to="genRec" spy={true} offset={-20} smooth={true} duration={700}>General Recreation Activities<span> ${ Math.round(genRecTotalPrice) }</span></Link> </li>
+                        <li><Link activeClass="active" to="wildlife" spy={true} offset={-20} smooth={true} duration={700}>Wildlife Center Activities<span>${ Math.round(wildlifeCenterTotalPrice)}</span></Link></li>
+                        <li><Link activeClass="active" to="highAdv" spy={true} offset={-20} smooth={true} duration={700}>High Adventure Activities<span>${ Math.round(highAdventureTotalPrice)}</span></Link></li>
+                        <li><Link activeClass="active" to="teamBuild" spy={true} offset={-20} smooth={true} duration={700}>Teambuilding Activities<span>${ Math.round(teambuildingTotalPrice)}</span></Link></li>
+                        <li><Link activeClass="active" to="horsePro" spy={true} offset={-20}smooth={true} duration={700}>Horse Program Activities<span>${ Math.round(horseProgramsTotalPrice)}</span></Link></li>
+                        <li><Link activeClass="active" to="pool" spy={true} offset={-20} smooth={true} duration={700}>Pool Parties <span>${ Math.round(poolPartiesTotalPrice)}</span></Link></li>
+                    </ul>
+                    <div>{ genRecTotalPrice } </div>
+                    <p className="text-center"><strong>Group Type Discounts: </strong>Day Groups may be eligible for discount with week day bookings, Monday through Friday.</p>
+                    <p className="text-center">*Group events are price as a flat rate. This “pp” estimate is meant to help with planning, but final billing will be set as a flat price, with a min/max # of people that the schedule can accommodate</p>
+                </div>
                 <button onClick={handleOnChange}>Click for Price</button>
             </MDBFooter>
         </div>

@@ -1,8 +1,8 @@
 import './App.css';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Container } from 'react-bootstrap';
-
-import DescriptionApp from './Description/Description';
+import HeadingApp from './RetreatSelection/Heading';
 import RetreatSizeApp from './RetreatSelection/RetreatSize';
 import RetreatTypeApp from './RetreatSelection/RetreatType';
 import GeneralActivitiesApp from './Activities/GeneralRecreation';
@@ -18,19 +18,14 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Row>
-          <Col>
-            <DescriptionApp />
-          </Col>
-        </Row>
-        <br/>
-        <br/>
-        <br/>
-        <Row>
-          <Col sm="12" lg="6">
+        <Row className="filter-bar">
+            <Col className="heading-intro" sm="12" lg="4">
+                <HeadingApp />
+            </Col>
+          <Col className="retreat-size" sm="12" lg="4">
             <RetreatSizeApp />
           </Col>
-          <Col sm="12" lg="6">
+          <Col className="retreat-type" sm="12" lg="4">
             <RetreatTypeApp />
           </Col>
         </Row>
@@ -38,49 +33,24 @@ function App() {
         <br/>
         <br/>
         <Row>
-          <Col sm="12" lg="6">
-            <GeneralActivitiesApp />
-          </Col>
-          <Col sm="12" lg="6">
-            <WildlifeCenterApp />
-          </Col>
+            <Col sm="12" lg="8">
+                <GeneralActivitiesApp />
+                <WildlifeCenterApp />
+                <HighAdventureApp />
+                <TeambuildingApp />
+                <HorseProgramsApp />
+                <PoolPartiesApp />
+            </Col>
+            <Col className="sidebar" sm="12" lg="4">
+                <FooterApp />
+            </Col>
         </Row>
-        <br/>
-        <br/>
-        <Row>
-          <Col sm="12" lg="6">
-            <HighAdventureApp />
-          </Col>
-          <Col sm="12" lg="6">
-            <TeambuildingApp />
-          </Col>
-        </Row>
-        <br/>
-        <br/>
-        <Row>
-          <Col sm="12" lg="6">
-            <HorseProgramsApp />
-          </Col>
-          <Col sm="12" lg="6">
-            <PoolPartiesApp />
-          </Col>
-        </Row>
-        <br/>
-        <br/>
         <Row>
           <Col sm="12" lg="12">
             <FormApp />
           </Col>
         </Row>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <FooterApp />
+
       </Container>
     </div>
   );

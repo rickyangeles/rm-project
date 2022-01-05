@@ -11,7 +11,7 @@ const poolParties = [
 
 export var poolPartiesTotalPrice;
 
-const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
+const getFormattedPrice = (price) => `$${price.toFixed(0)}`;
 
 function PoolPartiesApp() {
     const [checkedState, setCheckedState] = useState(
@@ -55,31 +55,53 @@ function PoolPartiesApp() {
     };
 
     return (
-        <div>
-            <h3 className="heading-style">Pool Parties:</h3>
+        <div className="single-activity-section" id="pool">
+            <div className="single-activity-header">
+                <div className="activity-name">
+                <h3 className="heading-style">Pool Parties</h3>
+                </div>
+                <div className="activity-per-person">
+                    <div>
+                    <p>Average Price Per Person:</p>
+                    <span>{getFormattedPrice(total)}</span>
+                    </div>
+                </div>
+            </div>
+            <p className="single-activity-description">Nunc interdum lacus sit amet orci. Quisque id mi. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Pellentesque commodo eros a enim.</p>
             <ul className="no-bullets">
-                {poolParties.map(({ label, link }, index) => {
+                {poolParties.map(({ label, link, desc, price }, index) => {
+                if (constHours !== "" && medianSize !== "" && isOvernight !== "") {
+                    if (isOvernight === false) {
+                        //console.log(genRec[index].label);
+                        price = Math.round((price * constHours) / medianSize);
+                    }
+                    else if (isOvernight === true) {
+                        //console.log(genRec[index].label);
+                        price = Math.round(((price * constHours) / medianSize) * 0.75);
+                    } else if (isOvernight === null) {
+                        price = 0;
+                    }
+                }else {
+                    price = 0;
+                }
                     return (
-                        <a href={link} key={index}>
-                            <li>
-                                <input
-                                    type="checkbox"
-                                    id={`custom-checkbox-${index}`}
-                                    name={label}
-                                    value={label}
-                                    checked={checkedState[index]}
-                                    onChange={() => handleOnChange(index)}
-                                />
-                                <label>{label}</label>
-                            </li>
-                        </a>
-
+                        <li key={index}>
+                            <input
+                                className='ck'
+                                type="checkbox"
+                                id={`custom-checkbox-${index}`}
+                                name={label}
+                                value={label}
+                                checked={checkedState[index]}
+                                onChange={() => handleOnChange(index)}
+                            />
+                            <label>
+                                <a href={link}>{label}</a> <span>${price}/PER</span>
+                                <p>{desc}</p>
+                            </label>
+                        </li>
                     );
                 })}
-                <li>
-                    <div><b>Average Price Per Person:</b></div>
-                    <div>{getFormattedPrice(total)}</div>
-                </li>
             </ul>
         </div>
     );

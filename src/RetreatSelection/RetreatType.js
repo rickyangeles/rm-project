@@ -37,7 +37,7 @@ class RetreatTypeApp extends React.Component {
                         <Form>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="retreat-type">
-                                    <Form.Label>Please Select Your Retreat Type:</Form.Label>
+                                    <Form.Label>Select Group Type</Form.Label>
                                     <Form.Control as="select" onChange={this.onTypeChange.bind(this)}>
                                         <option id="type">Retreat Type:</option>
                                         <option defaultValue id="day">Day Group</option>
