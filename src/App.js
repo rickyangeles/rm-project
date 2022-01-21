@@ -13,6 +13,7 @@ import TeambuildingApp from './Activities/Teambuilding';
 import PoolPartiesApp from './Activities/PoolParties';
 import FormApp from './Form/Form';
 import FooterApp from './Footer/Footer';
+import { isOvernight, groupType } from './RetreatSelection/RetreatType';
 
 function App() {
   return (
@@ -22,12 +23,12 @@ function App() {
             <Col className="heading-intro" sm="12" lg="4">
                 <HeadingApp />
             </Col>
-          <Col className="retreat-size" sm="12" lg="4">
-            <RetreatSizeApp />
-          </Col>
-          <Col className="retreat-type" sm="12" lg="4">
-            <RetreatTypeApp />
-          </Col>
+            <Col className="retreat-size" sm="12" lg="4">
+                <RetreatSizeApp />
+            </Col>
+            <Col className="retreat-type" sm="12" lg="4">
+                <RetreatTypeApp />
+            </Col>
         </Row>
         <br/>
         <br/>
@@ -35,10 +36,10 @@ function App() {
         <Row>
             <Col sm="12" lg="8">
                 <GeneralActivitiesApp />
-                <WildlifeCenterApp />
                 <HighAdventureApp />
                 <TeambuildingApp />
-                <HorseProgramsApp />
+                <WildlifeCenterApp />
+                <HorseProgramsApp />    
                 <PoolPartiesApp />
             </Col>
             <Col className="sidebar" sm="12" lg="4">
@@ -46,9 +47,9 @@ function App() {
             </Col>
         </Row>
         <Row>
-          <Col sm="12" lg="12">
-            <FormApp />
-          </Col>
+            <Col sm="12" lg="12">
+                <FormApp />
+            </Col>
         </Row>
 
       </Container>

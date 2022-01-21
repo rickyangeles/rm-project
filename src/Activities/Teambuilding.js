@@ -13,7 +13,7 @@ const teambuilding = [
     { price: 221, label: "Teambuilding - 2 hours", link: "https://refreshingmountain.com/activities/teambuilding-2/" },
 ];
 
-export var teambuildingTotalPrice;
+export var teambuildingTotalPrice = 0;
 
 const getFormattedPrice = (price) => `$${price.toFixed(0)}`;
 
@@ -36,11 +36,11 @@ function TeambuildingApp() {
                 (sum, currentState, index) => {
                     if (currentState === true) {
                         if (isOvernight === false) {
-                            console.log(teambuilding[index].label);
+                            //console.log(teambuilding[index].label);
                             return sum + ((teambuilding[index].price * constHours) / medianSize);
                         }
                         else if (isOvernight === true) {
-                            console.log(teambuilding[index].label);
+                            //console.log(teambuilding[index].label);
                             return sum + (((teambuilding[index].price * constHours) / medianSize) * 0.75);
                         }
                     }

@@ -6,3 +6,7 @@
 - [ ] Make sidebar pricing update for each individual section, as the user selects activities 
 - [ ] Make sidebar total pricing update as the user selects activities
 - [ ] Bring in the data from the ACF REST API into each activity (Price, Desc, Link);
+- [ ] Make submit button add parameters based on the values selected. For Gravity Form use
+- [ ] Pull in section description from custom field yet to be created
+- [ ] Make the activities in each section show pricing as soon as Group Type is selected, hide otherwise
+- [ ] Grey out the activity sections instead of hiding it. 
