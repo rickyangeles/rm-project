@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ActivityHeader = ({ title, total}) => {
+const ActivityHeader = ({ title, total, desc}) => {
     
     return (
         <div className="single-activity-header">

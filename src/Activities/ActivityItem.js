@@ -4,38 +4,21 @@ import { isOvernight } from '../RetreatSelection/RetreatType';
 
 
 function ActivityItem(props) {
-    const [checkedState, setCheckedState] = useState(0);
-    const handleOnChange = (price) => {
-        
-        if (constHours !== "" && medianSize !== "" && isOvernight !== "") {
-            if (isOvernight === false) {
-                //console.log(genRec[index].label);
-                price = Math.round((props.value * constHours) / medianSize);
-            }
-            else if (isOvernight === true) {
-                //console.log(genRec[index].label);
-                price = Math.round(((props.value * constHours) / medianSize) * 0.75);
-            } else if (isOvernight === null) {
-                price = 0;
-            }
-        }else {
-            price = 0;
-        }
-    }
+
     return(   
-    
-        <li key={props.id}>
+        <li key={props.index}>
             <input
                 className='ck'
                 type="checkbox"
-                id={`custom-checkbox-${props.id}`}
-                name={props.name}
-                value={props.title}
-                // /checked={}
-                onChange={() => handleOnChange(props.price)}
+                id={`custom-checkbox-${props.index}`}
+                name={props.label}
+                value={props.label}
+                //checked={props.checkedState[props.index]}
+                onChange={() => props.handleOnChange(props.index)}
             />
             <label>
-                <a href={props.link} target="_blank">{props.name}</a> <span>${Math.trunc(props.value)}/PER</span>
+                <a href={props.link}>{props.label}</a> <span>${props.price}/PER</span>
+                <p>{props.desc}</p>
             </label>
         </li>
     )
